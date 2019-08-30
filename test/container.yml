@@ -1,0 +1,14 @@
+# https://github.com/GoogleContainerTools/container-structure-test
+schemaVersion: 2.0.0
+
+fileExistenceTests:
+  - name: index.js
+    path: /home/nodejs/app/src/index.js
+    shouldExist: true
+
+metadataTest:
+  labels:
+    - key: Author
+      value: Andrey Afoninsky
+  cmd: ["node"]
+  workdir: /home/nodejs/app

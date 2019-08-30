@@ -1,0 +1,12 @@
+# https://skaffold.dev/docs/references/yaml/
+apiVersion: skaffold/v1beta13
+kind: Config
+build:
+  artifacts:
+    - image: kourier/sidecar
+  local:
+    push: true
+test:
+  - image: kourier/sidecar
+    structureTests:
+      - ./test/container.yml
