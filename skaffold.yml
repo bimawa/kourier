@@ -10,3 +10,7 @@ test:
   - image: kourier/sidecar
     structureTests:
       - ./test/container.yml
+deploy:
+  kubectl:
+    manifests:
+      - deploy/*.yml

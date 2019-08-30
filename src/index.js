@@ -11,8 +11,8 @@ const { Cluster } = require('./connections/cluster')
 const { Controller } = require('./connections/controller')
 
 const crdSpecifications = [
-  requireYAML('../crds/consumers.yml'),
-  requireYAML('../crds/producers.yml')
+  requireYAML('../deploy/consumers.yml'),
+  requireYAML('../deploy/producers.yml')
 ]
 
 const ajv = new Ajv({
@@ -28,7 +28,6 @@ const defaultConfig = {
   name: process.env.KOURIER_NAME,
   cluster: {},
   controller: {
-    proto: path.resolve(__dirname, '../../proto/model.proto'),
     host: process.env.GRPC_HOST || 'localhost',
     port: process.env.GRPC_PORT || '50051'
   },

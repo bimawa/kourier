@@ -5,7 +5,6 @@ const ld = require('lodash')
 const { loadProto } = require('@kourier.io/proto')
 
 const defaultConfig = {
-  proto: undefined,
   host: 'localhost',
   port: '50051',
   timeout: 500
@@ -17,7 +16,6 @@ class Controller {
     this.logger = instances.logger || console
     this.config = ld.merge(defaultConfig, config)
 
-    assert(this.config.proto)
     assert(name)
 
     const KourierService = loadProto()
