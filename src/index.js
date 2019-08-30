@@ -32,8 +32,12 @@ const defaultConfig = {
     port: process.env.GRPC_PORT || '50051'
   },
   events: {
+    source: process.env.KOURIER_EVENTSOURCE || 'local',
     nats: {
       url: process.env.NATS_URL || 'nats://localhost:4222'
+    },
+    local: {
+      //
     }
   }
 }
@@ -51,6 +55,7 @@ class KourierProxy {
     const instances = { logger: this.logger }
     this.cluster = new Cluster(this.name, this.config.cluster, instances)
     this.controller = new Controller(this.name, this.config.controller, instances)
+
     this.events = new Events(this.name, this.config.events, instances)
   }
 
@@ -119,6 +124,7 @@ class KourierProxy {
     // update internal state of resources
     this.resources[spectype] = this.resources[spectype] || {}
 
+    // unique subscription id
     const id = [name, spectype].join('-')
     switch (eventtype) {
       case 'ADDED':
@@ -151,10 +157,8 @@ class KourierProxy {
         break
       case 'DELETED':
         if (spectype === 'consumers') {
-          assert(spec.listen)
-          const [controllername, resourcename] = spec.listen.split('.')
           // unsubscribe from events
-          this.events.unsubscribe(id, resourcename, 'producer', controllername)
+          this.events.unsubscribe(id)
         }
         delete this.resources[spectype][name]
         break

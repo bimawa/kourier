@@ -10,5 +10,5 @@ metadataTest:
   labels:
     - key: Author
       value: Andrey Afoninsky
-  cmd: ["node"]
+  cmd: ["node", "src/index.js"]
   workdir: /home/nodejs/app

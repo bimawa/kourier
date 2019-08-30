@@ -6,6 +6,9 @@ build:
     - image: kourier/sidecar
   local:
     push: true
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:latest"
 test:
   - image: kourier/sidecar
     structureTests:

@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "^0.5.2",
-    "@kourier.io/proto": "^0.0.2",
+    "@kourier.io/proto": "^1.0.1",
     "@rbicker/jsonnet": "^0.1.1-0.12.1",
     "ajv": "^6.10.2",
     "bluebird": "^3.5.5",
