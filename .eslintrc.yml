@@ -1,0 +1,23 @@
+# http://eslint.org/docs/rules/
+extends:
+  - eslint:recommended
+  - prettier
+plugins:
+  - prettier
+parserOptions:
+  ecmaVersion: 9
+env:
+  node: true
+  es6: true
+  mocha: true
+rules:
+  complexity: [warn, 15]
+  semi: [error, never]
+  no-case-declarations: off
+  no-console: off
+  new-cap: off
+  strict: off
+  no-use-before-define: off
+  eol-last: off
+  quotes: [warn, single, avoidEscape: true]
+  prettier/prettier: warn
