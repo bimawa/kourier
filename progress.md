@@ -9,6 +9,7 @@
 - [ ] create helm installer
 
 ### next iterations
+- [ ] add healthchecks (grpc health)
 - [ ] add ability to inject values (configmap/secrets, env vars)
 - [ ] add prometheus support
 - [ ] setup opentracing

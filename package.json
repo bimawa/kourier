@@ -1,10 +1,10 @@
 {
-  "name": "@kourier.io/sidecar",
+  "name": "@kourier.io/kourier",
   "version": "1.0.0",
   "main": "src/index.js",
   "description": "Proxy requests between service and environment",
   "author": "Andrey Afoninsky",
-  "repository": "git@github.com:kourier-io/sidecar.git",
+  "repository": "git@github.com:kourier-io/kourier.git",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

@@ -3,14 +3,14 @@ apiVersion: skaffold/v1beta13
 kind: Config
 build:
   artifacts:
-    - image: kourier/sidecar
+    - image: kourier/kourier
   local:
     push: true
   tagPolicy:
     envTemplate:
       template: "{{.IMAGE_NAME}}:latest"
 test:
-  - image: kourier/sidecar
+  - image: kourier/kourier
     structureTests:
       - ./test/container.yml
 deploy:
