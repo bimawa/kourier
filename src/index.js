@@ -77,8 +77,7 @@ class KourierProxy {
       throw err
     }
     let result = data
-    data = applyJsonTransformation(data, resource.update)
-    data = applyJsonTransformation(data, resource.replace, true)
+    data = applyJsonTransformation(data, resource.transformation)
     await this.events.publish(producerName, 'producer', result)
   }
 
@@ -98,8 +97,7 @@ class KourierProxy {
       }
 
       let data = event.data
-      data = applyJsonTransformation(data, resource.update)
-      data = applyJsonTransformation(data, resource.replace, true)
+      data = applyJsonTransformation(data, resource.transformation)
       event.data = data
       const value = Buffer.from(JSON.stringify(event))
       this.stream.write({ name: resource.name, value })
@@ -151,8 +149,7 @@ class KourierProxy {
           validator,
           spec,
           name,
-          update: parseJsonNetString(spec.update),
-          replace: parseJsonNetString(spec.replace)
+          transformation: parseJsonNetString(spec.transformation)
         }
         break
       case 'DELETED':

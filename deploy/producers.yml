@@ -32,9 +32,7 @@ spec:
               type: string
             schema:
               type: object
-            update:
-              type: string
-            replace:
+            transformation:
               type: string
             config:
               type: object

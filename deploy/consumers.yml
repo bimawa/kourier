@@ -35,9 +35,7 @@ spec:
               type: string
             schema:
               type: object
-            update:
-              type: string
-            replace:
+            transformation:
               type: string
             listen:
               type: string
