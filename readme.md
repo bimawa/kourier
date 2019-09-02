@@ -13,7 +13,7 @@ https://shields.io/category/build
 <p align="center">
     <img src="doc/logo.png" alt="Logo">
   <p align="center">
-    Kubernetes-based infrastructure mesh framework
+    Kubernetes-based automation manager
     <br />
     <a href="https://github.com/kourier-io/kourier/issues">Report Bug</a>
     ·
@@ -50,10 +50,9 @@ This project allows us to connect varous environments using handles they provide
 
 Usecase sample: send notification to custom chat messenger and create annotation in grafana on succesful CI build. See [examples](#examples) and [architecture concept](doc/architecture.md) for more information.
 
-NOTE: this is ALPHA version of Kourier service mesh. After testing the concept implementation and protocol can be changed with backward compatibility.
+NOTE: this is ALPHA version of Kourier. After testing the concept implementation and protocol can be changed with backward compatibility.
 
 ### Features
-- easy extending of Kourier events mesh
 - native CloudEvents support
 - infrastructure as a code
 - automatic validation and normalization with json schemas
