@@ -13,7 +13,7 @@ https://shields.io/category/build
 <p align="center">
     <img src="doc/logo.png" alt="Logo">
   <p align="center">
-    Kubernetes-based infrastructure mesh framework
+    Kubernetes-based automation manager framework
     <br />
     <a href="https://github.com/kourier-io/kourier/issues">Report Bug</a>
     ·
@@ -53,7 +53,6 @@ Usecase sample: send a notification to custom chat messenger and create an annot
 NOTE: this is ALPHA version of Kourier service mesh. After testing the concept implementation and protocol, we can change with backward compatibility.
 
 ### Features
-- easy extending of Kourier events mesh
 - native CloudEvents support
 - infrastructure as a code
 - automatic validation and normalization with json schemas
