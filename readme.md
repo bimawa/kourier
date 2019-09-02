@@ -13,7 +13,7 @@ https://shields.io/category/build
 <p align="center">
     <img src="doc/logo.png" alt="Logo">
   <p align="center">
-    Kubernetes-based automation manager
+    Kubernetes-based infrastructure mesh framework
     <br />
     <a href="https://github.com/kourier-io/kourier/issues">Report Bug</a>
     ·
@@ -44,15 +44,16 @@ https://shields.io/category/build
 ## About The Project
 
 ### What is it
-There are huge amount of tools in the world of devops. Simple and complex ones. They are designed to solve problems and we use a lot of them to achieve our goals. But there is one problem beyound them - they don't know about each other (most of them).
+There are a massive amount of tools in the world of DevOps. Simple and complex ones. They are designed to solve, and we have to use a lot of them to achieve our goals. But there is one problem. The problem beyond them - they don't know about each other (most of them).
 
 This project allows us to connect varous environments using handles they provide. We do it by using specified controllers and describing event flows in kubernetes [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Think about it as IFTTT for internal infrastructure.
 
-Usecase sample: send notification to custom chat messenger and create annotation in grafana on succesful CI build. See [examples](#examples) and [architecture concept](doc/architecture.md) for more information.
+Usecase sample: send a notification to custom chat messenger and create an annotation in grafana on successful CI build. See [examples](#examples) and [architecture concept](doc/architecture.md) for more information.
 
-NOTE: this is ALPHA version of Kourier. After testing the concept implementation and protocol can be changed with backward compatibility.
+NOTE: this is ALPHA version of Kourier service mesh. After testing the concept implementation and protocol, we can change with backward compatibility.
 
 ### Features
+- easy extending of Kourier events mesh
 - native CloudEvents support
 - infrastructure as a code
 - automatic validation and normalization with json schemas
