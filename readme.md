@@ -1,11 +1,4 @@
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -17,12 +10,8 @@ https://shields.io/category/build
 
  -->
 
-<!-- PROJECT LOGO -->
-<br />
 <p align="center">
-
-  <h3 align="center">Kourier</h3>
-
+    <img src="doc/logo.png" alt="Logo">
   <p align="center">
     Kubernetes-based infrastructure mesh framework
     <br />
@@ -38,52 +27,61 @@ https://shields.io/category/build
 ## Table of Contents
 
 * [About the Project](#about-the-project)
+  * [What is it](#what-is-it)
+  * [Features](#features)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Examples](#examples)
+  * [Examples](#examples)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
-* [Contact](#contact)
+* [Contacts](#contacts)
 * [Acknowledgements](#acknowledgements)
 
 
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+### What is it
+There are huge amount of tools in the world of devops. There are simple and complex ones designed to solve all problems. And we have to use a lot of them to achieve our goals. The problem is - they don't know about each other.  This project allows to create common pipelines that describe event flows using kubernetes [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
-- what is it
-- what problems it solves
-- architecture description
+See [examples](#examples) and [architecture concept](doc/architecture.md) for more information.
+
+NOTE: this is ALPHA version of Kourier service mesh. After checking the concept implementation and protocol can be changed.
+
+### Features
+- easy extending of Kourier events mesh
+- native CloudEvents support
+- infrastructure as a code
+- automatic validation and normalization with json schemas
+- ability to create languange-agnostic controllers
+- extending pipelines using jsonnet language
+- ... see Roadmap
 
 ## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-```sh
-brew install ...
-```
 
 ### Installation
  
 ```sh
-helm install ...
+# add helm chart repository
+helm repo add kourier https://kourier-io.github.io/helm-chart
+
+# create default custom resource definitions
+helm upgrade kourier-crd kourier/crd --install
+
+# install basic wersion of webhook controller
+# available options: https://github.com/kourier-io/helm-chart/blob/master/kourier/values.yaml
+helm upgrade kourier-rest kourier/kourier --install --set controllerName=rest,service.enabled=true,image.repository=kourier/rest-controller
 ```
 
 
-## Examples
-TODO
-
-
+### Examples
+TBD
 
 ## Roadmap
 
-See the [open issues](https://github.com/kourier-io/kourier/labels/roadmap) for a list of proposed features
-
+See the [open issues](https://github.com/kourier-io/kourier/labels/enhancement) for a list of proposed features
 
 
 ## Contributing
@@ -103,21 +101,18 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
-
-<!-- CONTACT -->
-## Contact
-
-Andrey Afoninsky - vkfont@gmail.com
-
-Project Link: [https://github.com/kourier-io/kourier](https://github.com/kourier-io/kourier)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+Autors:
+* [https://makeomatic.ca](https://makeomatic.ca/)
 
+Inspired by:
 * [StackStorm](https://stackstorm.com/)
 * [Argo Events](https://github.com/argoproj/argo-events)
+
+Uses:
+* [jsonnet](https://jsonnet.org/)
+* [CloudEvents](https://cloudevents.io/)
+* [JSON schema](https://json-schema.org/)
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/kourier-io/kourier.svg?style=flat-square
@@ -130,4 +125,3 @@ Project Link: [https://github.com/kourier-io/kourier](https://github.com/kourier
 [issues-url]: https://github.com/kourier-io/kourier/issues
 [license-shield]: https://img.shields.io/github/license/kourier-io/kourier.svg?style=flat-square
 [license-url]: https://github.com/kourier-io/kourier/blob/master/LICENSE
-[product-screenshot]: doc/logo.png
