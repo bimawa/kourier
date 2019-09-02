@@ -44,7 +44,7 @@ https://shields.io/category/build
 ## About The Project
 
 ### What is it
-There are huge amount of tools in the world of devops. Simple and complex ones. They are designed to solve and we have to use a lot of them to achieve our goals. But there is one problem The problem beyound them - they don't know about each other (most of them).
+There are huge amount of tools in the world of devops. Simple and complex ones. They are designed to solve problems and we use a lot of them to achieve our goals. But there is one problem beyound them - they don't know about each other (most of them).
 
 This project allows us to connect varous environments using handles they provide. We do it by using specified controllers and describing event flows in kubernetes [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Think about it as IFTTT for internal infrastructure.
 
