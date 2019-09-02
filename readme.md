@@ -32,7 +32,7 @@ https://shields.io/category/build
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-  * [Examples](#examples)
+* [Examples](#examples)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -44,11 +44,13 @@ https://shields.io/category/build
 ## About The Project
 
 ### What is it
-There are huge amount of tools in the world of devops. There are simple and complex ones designed to solve all problems. And we have to use a lot of them to achieve our goals. The problem is - they don't know about each other.  This project allows to create common pipelines that describe event flows using kubernetes [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+There are huge amount of tools in the world of devops. Simple and complex ones. They are designed to solve and we have to use a lot of them to achieve our goals. But there is one problem The problem beyound them - they don't know about each other (most of them).
+
+This project allows us to connect varous environments using handles they provide. We do it by using specified controllers and describing event flows in kubernetes [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Think about it as IFTTT for internal infrastructure.
 
 See [examples](#examples) and [architecture concept](doc/architecture.md) for more information.
 
-NOTE: this is ALPHA version of Kourier service mesh. After checking the concept implementation and protocol can be changed.
+NOTE: this is ALPHA version of Kourier service mesh. After testing the concept implementation and protocol can be changed with backward compatibility.
 
 ### Features
 - easy extending of Kourier events mesh
@@ -76,7 +78,28 @@ helm upgrade kourier-rest kourier/kourier --install --set controllerName=rest,se
 ```
 
 
-### Examples
+## Examples
+
+### Basic
+This is simple demonstration how to trigger remote system using event from custom webhook.
+```sh
+# apply webhook config
+kubectl apply -f https://raw.githubusercontent.com/kourier-io/kourier/master/examples/basic/webhook.yml
+# apply webhook event catcher
+kubectl apply -f https://raw.githubusercontent.com/kourier-io/kourier/master/examples/basic/request.yml
+# forward rest controller port
+kubectl port-forward service/kourier-rest 8080
+# point your browser to https://kourier.requestcatcher.com/ and execute:
+curl -X POST "http://localhost:8080/test" -H "Content-Type: application/json" \
+ -d '{
+  "message": "hello"
+ }'
+```
+
+### Advanced
+TBD
+
+### Writing controller
 TBD
 
 ## Roadmap
@@ -106,13 +129,13 @@ Autors:
 * [https://makeomatic.ca](https://makeomatic.ca/)
 
 Inspired by:
-* [StackStorm](https://stackstorm.com/)
-* [Argo Events](https://github.com/argoproj/argo-events)
+* [https://stackstorm.com/](https://stackstorm.com/)
+* [https://github.com/argoproj/argo-events](https://github.com/argoproj/argo-events)
 
 Uses:
-* [jsonnet](https://jsonnet.org/)
-* [CloudEvents](https://cloudevents.io/)
-* [JSON schema](https://json-schema.org/)
+* [https://jsonnet.org/](https://jsonnet.org/)
+* [https://cloudevents.io/](https://cloudevents.io/)
+* [https://json-schema.org/](https://json-schema.org/)
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/kourier-io/kourier.svg?style=flat-square

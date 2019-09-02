@@ -1,0 +1,24 @@
+apiVersion: kourier.io/v1
+kind: consumers
+metadata:
+  name: kourier-debug
+spec:
+  ### controller which receive event
+  controller: rest
+  ### event to listen in form {source-controller}.{source-producer}
+  listen: rest.basic-webhook
+  ### optional jsonnet trasformation:
+  # - replace field .message to .text
+  # - remove additional fields
+  transformation: |
+    {
+      data: {
+        text: message.message
+      }
+    }
+  ### default values for outgoing request
+  defaults:
+    method: POST
+    url: https://kourier.requestcatcher.com/
+    headers:
+      Content-Type: application/json

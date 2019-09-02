@@ -1,0 +1,21 @@
+apiVersion: kourier.io/v1
+kind: producers
+metadata:
+  name: basic-webhook
+spec:
+  ### controller which will receive this config
+  controller: rest
+  ### webhook configuration
+  config:
+    path: /test
+    method: POST
+  ### optional request validation schema
+  schema:
+    additionalProperties: false
+    required: ["message"]
+    properties:
+      message:
+        type: string
+      success:
+        type: boolean
+        default: true
