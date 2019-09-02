@@ -48,7 +48,7 @@ There are huge amount of tools in the world of devops. Simple and complex ones. 
 
 This project allows us to connect varous environments using handles they provide. We do it by using specified controllers and describing event flows in kubernetes [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Think about it as IFTTT for internal infrastructure.
 
-See [examples](#examples) and [architecture concept](doc/architecture.md) for more information.
+Usecase sample: send notification to custom chat messenger and create annotation in grafana on succesful CI build. See [examples](#examples) and [architecture concept](doc/architecture.md) for more information.
 
 NOTE: this is ALPHA version of Kourier service mesh. After testing the concept implementation and protocol can be changed with backward compatibility.
 
